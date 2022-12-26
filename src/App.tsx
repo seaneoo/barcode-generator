@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import styled from "styled-components";
+import Barcode from "./components/Barcode";
 import GlobalStyles from "./globalStyles";
 
 const _Main = styled.main`
@@ -15,7 +16,9 @@ function App() {
   return (
     <Fragment>
       <GlobalStyles />
-      <_Main></_Main>
+      <_Main>
+        <Barcode options={{ format: "UPC" }} />
+      </_Main>
     </Fragment>
   );
 }
