@@ -1,6 +1,6 @@
 <h1><img src="docs/barcodes.png" width="50%"/></h1>
 
-Aliquip consequat do et est eu proident id anim laborum duis pariatur anim.
+Simple barcode generator, powered by [JsBarcode](https://github.com/lindell/JsBarcode).
 
 ## License
 
