@@ -16,6 +16,7 @@ const GlobalStyles = createGlobalStyle`${css`
 
   body {
     margin: 0;
+    font-family: "Inter", sans-serif;
   }
 `}`;
 
