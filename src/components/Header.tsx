@@ -10,7 +10,7 @@ const _Header = styled.header`
   border-bottom: 1px solid #dddddd;
 
   svg {
-    height: 2rem;
+    height: 4rem;
   }
 `;
 
