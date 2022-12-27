@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { BarcodeContext } from "../barcodeContexts";
 
 const _Form = styled.form`
@@ -18,11 +18,20 @@ const _Group = styled.div`
   gap: 0.5rem;
 `;
 
-const _Input = styled.input`
+const inputStyles = css`
   padding: 0.5rem;
   font-family: inherit;
+  background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 4px;
+`;
+
+const _Input = styled.input`
+  ${inputStyles}
+`;
+
+const _Select = styled.select`
+  ${inputStyles}
 `;
 
 const _Button = styled.button`
@@ -37,13 +46,29 @@ const _Button = styled.button`
   cursor: pointer;
 `;
 
+const formats = [
+  "CODE128",
+  "UPC",
+  "EAN13",
+  "EAN8",
+  "EAN5",
+  "EAN2",
+  "CODE39",
+  "ITF-14",
+  "MSI",
+  "Pharmacode",
+  "Codabar",
+];
+
 function Form() {
   const ctx = useContext(BarcodeContext);
   const input = useRef<any>();
+  const format = useRef<any>();
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     ctx?.setText(input.current?.value);
+    ctx?.setFormat(format.current?.value);
   };
 
   return (
@@ -57,6 +82,19 @@ function Form() {
           name="barcodeInput"
           id="barcodeInput"
         />
+      </_Group>
+
+      <_Group>
+        <label htmlFor="barcodeFormat">Format</label>
+        <_Select ref={format} name="barcodeFormat" id="barcodeFormat">
+          {formats.map((f, i) => {
+            return (
+              <option key={i} value={f}>
+                {f}
+              </option>
+            );
+          })}
+        </_Select>
       </_Group>
 
       <_Button type="submit">Generate Barcode</_Button>
