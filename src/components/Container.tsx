@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Form from "./Form";
 import Header from "./Header";
 
 const _Main = styled.main`
@@ -13,7 +14,9 @@ function Container() {
   return (
     <>
       <Header />
-      <_Main></_Main>
+      <_Main>
+        <Form />
+      </_Main>
     </>
   );
 }
