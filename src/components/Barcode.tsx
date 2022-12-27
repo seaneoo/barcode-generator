@@ -1,7 +1,7 @@
 import JsBarcode from "jsbarcode";
 import { useEffect, useRef } from "react";
 
-type BarcodeFormats =
+export type BarcodeFormats =
   | "CODE128"
   | "UPC"
   | "EAN13"

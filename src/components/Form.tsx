@@ -43,7 +43,7 @@ function Form() {
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    ctx?.setBarcodeText(input.current?.value);
+    ctx?.setText(input.current?.value);
   };
 
   return (

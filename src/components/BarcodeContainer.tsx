@@ -19,9 +19,7 @@ function BarcodeContainer() {
 
   return (
     <_Wrapper>
-      {ctx?.barcodeText !== "" && (
-        <Barcode value={ctx?.barcodeText} format="UPC" />
-      )}
+      {ctx?.text !== "" && <Barcode value={ctx?.text} format={ctx?.format} />}
     </_Wrapper>
   );
 }
