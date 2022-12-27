@@ -1,5 +1,7 @@
 <h1><img src="docs/barcodes.png" width="50%"/></h1>
 
+![GitHub issues](https://img.shields.io/github/issues/seaneoo/barcodes?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/seaneoo/barcodes?style=flat-square) ![GitHub Repo stars](https://img.shields.io/github/stars/seaneoo/barcodes?style=flat-square) ![License](https://img.shields.io/github/license/seaneoo/barcodes?color=9c9c9c&style=flat-square)
+
 Simple barcode generator, powered by [JsBarcode](https://github.com/lindell/JsBarcode).
 
 ## License
