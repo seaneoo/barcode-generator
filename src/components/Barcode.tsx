@@ -1,19 +1,29 @@
-import JsBarcode, { Options } from "jsbarcode";
+import JsBarcode from "jsbarcode";
 import { useEffect, useRef } from "react";
 
-/**
- * TOOD: Update this component to include proper customizations and accept user inputs
- */
+type BarcodeFormats =
+  | "CODE128"
+  | "UPC"
+  | "EAN13"
+  | "EAN8"
+  | "EAN5"
+  | "EAN2"
+  | "CODE39"
+  | "ITF-14"
+  | "MSI"
+  | "Pharmacode"
+  | "Codabar";
 
-interface Props {
-  options: Options;
-}
+type Props = {
+  value?: string;
+  format?: BarcodeFormats;
+};
 
-function Barcode({ options }: Props) {
+function Barcode({ value = "", format = "CODE128" }: Props) {
   const elm = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    JsBarcode(elm.current, "045496883386", options);
+    JsBarcode(elm.current, value, { format });
   }, []);
 
   return <svg ref={elm}></svg>;
