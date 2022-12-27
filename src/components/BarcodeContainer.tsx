@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { BarcodeContext } from "../barcodeContexts";
 import Barcode from "./Barcode";
 
 const _Wrapper = styled.div`
@@ -13,9 +15,13 @@ const _Wrapper = styled.div`
 `;
 
 function BarcodeContainer() {
+  const ctx = useContext(BarcodeContext);
+
   return (
     <_Wrapper>
-      <Barcode value="000000000000" format="UPC" />
+      {ctx?.barcodeText !== "" && (
+        <Barcode value={ctx?.barcodeText} format="UPC" />
+      )}
     </_Wrapper>
   );
 }

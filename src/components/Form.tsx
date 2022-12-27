@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext, useRef } from "react";
 import styled from "styled-components";
+import { BarcodeContext } from "../barcodeContexts";
 
 const _Form = styled.form`
   width: 100%;
@@ -37,23 +38,19 @@ const _Button = styled.button`
 `;
 
 function Form() {
-  const [input, setInput] = useState("");
+  const ctx = useContext(BarcodeContext);
+  const input = useRef<any>();
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
+    ctx?.setBarcodeText(input.current?.value);
   };
 
   return (
     <_Form onSubmit={submit}>
       <_Group>
         <label htmlFor="barcodeInput">Text</label>
-        <_Input
-          type="text"
-          name="barcodeInput"
-          id="barcodeInput"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
+        <_Input ref={input} type="text" name="barcodeInput" id="barcodeInput" />
       </_Group>
 
       <_Button type="submit">Generate Barcode</_Button>
