@@ -11,7 +11,7 @@ const _Main = styled.main`
   padding: 1rem;
 `;
 
-function Container() {
+function AppContainer() {
   return (
     <>
       <Header />
@@ -23,4 +23,4 @@ function Container() {
   );
 }
 
-export default Container;
+export default AppContainer;

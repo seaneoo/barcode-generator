@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Container from "./components/Container";
+import AppContainer from "./components/AppContainer";
 import { BarcodeContext } from "./barcodeContexts";
 import GlobalStyles from "./globalStyles";
 
@@ -9,7 +9,7 @@ function App() {
   return (
     <BarcodeContext.Provider value={{ barcodeText, setBarcodeText }}>
       <GlobalStyles />
-      <Container />
+      <AppContainer />
     </BarcodeContext.Provider>
   );
 }
