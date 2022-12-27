@@ -50,7 +50,13 @@ function Form() {
     <_Form onSubmit={submit}>
       <_Group>
         <label htmlFor="barcodeInput">Text</label>
-        <_Input ref={input} type="text" name="barcodeInput" id="barcodeInput" />
+        <_Input
+          ref={input}
+          type="text"
+          autoComplete="off"
+          name="barcodeInput"
+          id="barcodeInput"
+        />
       </_Group>
 
       <_Button type="submit">Generate Barcode</_Button>
