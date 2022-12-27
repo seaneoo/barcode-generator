@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import BarcodeContainer from "./BarcodeContainer";
 import Form from "./Form";
 import Header from "./Header";
 
@@ -16,6 +17,7 @@ function Container() {
       <Header />
       <_Main>
         <Form />
+        <BarcodeContainer />
       </_Main>
     </>
   );
