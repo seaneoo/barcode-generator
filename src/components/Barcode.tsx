@@ -8,14 +8,14 @@ type Props = {
 };
 
 function Barcode({ value = "", format = "CODE128" }: Props) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    if (canvasRef !== null && canvasRef.current !== null)
-      JsBarcode(canvasRef.current, value, { format });
+    if (svgRef !== null && svgRef.current !== null)
+      JsBarcode(svgRef.current, value, { format });
   }, [value, format]);
 
-  return <canvas ref={canvasRef}></canvas>;
+  return <svg ref={svgRef}></svg>;
 }
 
 export default Barcode;
