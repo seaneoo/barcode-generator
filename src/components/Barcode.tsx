@@ -12,7 +12,11 @@ function Barcode({ value = "", format = "CODE128" }: Props) {
 
   useEffect(() => {
     if (svgRef !== null && svgRef.current !== null)
-      JsBarcode(svgRef.current, value, { format });
+      try {
+        JsBarcode(svgRef.current, value, { format });
+      } catch (error) {
+        console.error(error);
+      }
   }, [value, format]);
 
   return <svg ref={svgRef}></svg>;
