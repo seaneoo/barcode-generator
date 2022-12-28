@@ -1,5 +1,6 @@
 import JsBarcode from "jsbarcode";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
+import { AppContext } from "../context";
 import { BarcodeFormats } from "../types";
 
 type Props = {
@@ -8,14 +9,17 @@ type Props = {
 };
 
 function Barcode({ value = "", format = "CODE128" }: Props) {
+  const ctx = useContext(AppContext);
   const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
     if (svgRef !== null && svgRef.current !== null)
       try {
         JsBarcode(svgRef.current, value, { format });
+        ctx?.setError("");
       } catch (error) {
-        console.error(error);
+        ctx?.setText("");
+        ctx?.setError(error as string);
       }
   }, [value, format]);
 

@@ -18,6 +18,13 @@ const _Group = styled.div`
   gap: 0.5rem;
 `;
 
+const _Error = styled.span`
+  padding: 1rem;
+  color: #ffffff;
+  background-color: #ef4444;
+  border-radius: 4px;
+`;
+
 const inputStyles = css`
   padding: 0.5rem;
   font-family: inherit;
@@ -76,6 +83,8 @@ function Form() {
 
   return (
     <_Form onSubmit={submit}>
+      {ctx?.error !== "" && <_Error>{ctx?.error}</_Error>}
+
       <_Group>
         <label htmlFor="barcodeInput">Text</label>
         <_Input
