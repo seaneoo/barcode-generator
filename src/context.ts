@@ -1,5 +1,5 @@
 import React, { createContext } from "react";
-import type { BarcodeFormats } from "./components/Barcode";
+import { BarcodeFormats } from "./types";
 
 type Context = {
   text: string;
@@ -8,4 +8,4 @@ type Context = {
   setFormat: React.Dispatch<React.SetStateAction<BarcodeFormats>>;
 };
 
-export const BarcodeContext = createContext<Context | null>(null);
+export const AppContext = createContext<Context | null>(null);

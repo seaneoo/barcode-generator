@@ -1,18 +1,6 @@
 import JsBarcode from "jsbarcode";
 import { useEffect, useRef } from "react";
-
-export type BarcodeFormats =
-  | "CODE128"
-  | "UPC"
-  | "EAN13"
-  | "EAN8"
-  | "EAN5"
-  | "EAN2"
-  | "CODE39"
-  | "ITF-14"
-  | "MSI"
-  | "Pharmacode"
-  | "Codabar";
+import { BarcodeFormats } from "../types";
 
 type Props = {
   value?: string;
@@ -20,13 +8,14 @@ type Props = {
 };
 
 function Barcode({ value = "", format = "CODE128" }: Props) {
-  const elm = useRef<SVGSVGElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    JsBarcode(elm.current, value, { format });
+    if (canvasRef !== null && canvasRef.current !== null)
+      JsBarcode(canvasRef.current, value, { format });
   }, [value, format]);
 
-  return <svg ref={elm}></svg>;
+  return <canvas ref={canvasRef}></canvas>;
 }
 
 export default Barcode;

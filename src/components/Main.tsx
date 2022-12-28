@@ -1,6 +1,4 @@
-import { useContext } from "react";
 import styled from "styled-components";
-import { BarcodeContext } from "../barcodeContexts";
 import BarcodeContainer from "./BarcodeContainer";
 import Form from "./Form";
 import Header from "./Header";
@@ -13,18 +11,16 @@ const _Main = styled.main`
   padding: 1rem;
 `;
 
-function AppContainer() {
-  const ctx = useContext(BarcodeContext);
-
+function Main() {
   return (
     <>
       <Header />
       <_Main>
         <Form />
-        {ctx?.text !== "" && <BarcodeContainer />}
+        <BarcodeContainer />
       </_Main>
     </>
   );
 }
 
-export default AppContainer;
+export default Main;

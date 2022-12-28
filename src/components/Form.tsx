@@ -1,6 +1,6 @@
 import React, { useContext, useRef } from "react";
 import styled, { css } from "styled-components";
-import { BarcodeContext } from "../barcodeContexts";
+import { AppContext } from "../context";
 
 const _Form = styled.form`
   width: 100%;
@@ -61,14 +61,14 @@ const formats = [
 ];
 
 function Form() {
-  const ctx = useContext(BarcodeContext);
-  const input = useRef<any>();
-  const format = useRef<any>();
+  const ctx = useContext(AppContext);
+  const inputRef = useRef<any>();
+  const formatRef = useRef<any>();
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    ctx?.setText(input.current?.value);
-    ctx?.setFormat(format.current?.value);
+    ctx?.setText(inputRef.current?.value);
+    ctx?.setFormat(formatRef.current?.value);
   };
 
   return (
@@ -76,7 +76,7 @@ function Form() {
       <_Group>
         <label htmlFor="barcodeInput">Text</label>
         <_Input
-          ref={input}
+          ref={inputRef}
           type="text"
           autoComplete="off"
           name="barcodeInput"
@@ -86,7 +86,7 @@ function Form() {
 
       <_Group>
         <label htmlFor="barcodeFormat">Format</label>
-        <_Select ref={format} name="barcodeFormat" id="barcodeFormat">
+        <_Select ref={formatRef} name="barcodeFormat" id="barcodeFormat">
           {formats.map((f, i) => {
             return (
               <option key={i} value={f}>
