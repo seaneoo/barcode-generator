@@ -24,7 +24,7 @@ function Barcode({ value = "", format = "CODE128" }: Props) {
 
   useEffect(() => {
     JsBarcode(elm.current, value, { format });
-  }, []);
+  }, [value, format]);
 
   return <svg ref={elm}></svg>;
 }
