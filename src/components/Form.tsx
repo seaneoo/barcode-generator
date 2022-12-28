@@ -21,6 +21,8 @@ const _Group = styled.div`
 const inputStyles = css`
   padding: 0.5rem;
   font-family: inherit;
+  font-size: inherit;
+  color: inherit;
   background-color: #ffffff;
   border: 1px solid #dddddd;
   border-radius: 4px;
@@ -32,6 +34,7 @@ const _Input = styled.input`
 
 const _Select = styled.select`
   ${inputStyles}
+  -webkit-appearance: none;
 `;
 
 const _Button = styled.button`
